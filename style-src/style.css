@@ -740,6 +740,9 @@ body {
   #about .container .image {
     width: 40%;
   }
+  #about .container .text h2 {
+    margin-top: 20px;
+  }
   
   #skills .container {
     display: flex;
@@ -813,5 +816,8 @@ body {
   #projects .container {
     grid-template-columns: auto auto auto;
     gap: 30px;
+  }
+  #contact .container .image {
+    width: 90%;
   }
 }
