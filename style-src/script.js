@@ -63,3 +63,10 @@ const ketikFunction = () => {
   }
 }
 ketikFunction();
+
+// Dark Mode Function 
+const iconMode = document.querySelector(".iconMode")
+iconMode.addEventListener("click", () => {
+  document.querySelector('html').classList.toggle('dark');
+  iconMode.classList.toggle("active")
+})

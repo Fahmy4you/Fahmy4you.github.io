@@ -8,7 +8,7 @@
   --linearSocial: linear-gradient(135deg, #C597FF, #797fff, #C597FF);
   --iconAbout: #C597FF;
   --glassBg: rgba(255,255,255,0.1);
-  --borderGlass: rgba(0,0,0,0.5);
+  --borderGlass: rgba(0,0,0,0.3);
   --maskGambar: linear-gradient(
   to right,
   transparent,
@@ -28,16 +28,6 @@ html.dark {
   --textWhite: rgb(241 245 249);
   --linearSocial: linear-gradient(135deg, rgb(139 92 246), #8e93fd, rgb(139 92 246));
   --iconAbout: rgb(139 92 246);
-  --glassBg: rgba(255,255,255,0.1);
-  --borderGlass: rgba(0,0,0,0.5);
-  --maskGambar: linear-gradient(
-  to right,
-  transparent,
-  #000 7% 93%,
-  transparent
-  );
-  --inputHeight: 40px;
-  --textareaHeight: 100px;
 }
 
 * {
@@ -78,6 +68,42 @@ body {
   background-color: var(--bg);
   color: var(--text);
   overflow-x: hidden;
+  transition: .3s;
+}
+
+.iconMode {
+  background: var(--aHover);
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border: 0;
+  border-radius: 100%;
+  box-shadow: 5px 5px 5px var(--shadow);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.iconMode i {
+  position: absolute;
+  font-size: 20px;
+  opacity: 0;
+  transition: all .3s ease-in-out;
+}
+.iconMode i:nth-child(1) {
+  opacity: 1;
+  transform: rotate(360deg);
+}
+.iconMode.active i:nth-child(1) {
+  opacity: 0;
+  transform: rotate(0deg);
+}
+.iconMode.active i:nth-child(2) {
+  opacity: 1;
+  transform: rotate(360deg);
+  color: var(--textWhite);
 }
 
 .navbar {
@@ -92,6 +118,7 @@ body {
   padding: 15px 20px;
   z-index: 100;
   box-shadow: 0 4px 6px 0 var(--shadow);
+  transition: .3s;
 }
 .navbar .menu {
   position: absolute;
@@ -412,7 +439,7 @@ body {
 }
 #projects .container .cardProject {
   background-color: var(--glassBg);
-  box-shadow: 15px 15px 15px var(--shadow);
+  box-shadow: 5px 5px 5px var(--shadow);
   padding: 20px;
   border-radius: 10px;
   backdrop-filter: blur(5px);
@@ -654,6 +681,7 @@ body {
   position: relative;
   overflow: hidden;
   transition: all .3s ease-in-out;
+  color: var(--text);
 }
 #contact .container .form .buttonDiv button::before
 {
