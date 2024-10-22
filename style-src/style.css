@@ -2,11 +2,32 @@
   --bg: rgb(241 245 249);
   --text: rgb(15 23 42);
   --nav: rgb(241 245 249);
-  --aHover: rgb(14 165 233);
+  --aHover: rgb(14,165,233);
   --shadow: rgba(0, 0, 0, 0.2);
   --textWhite: rgb(241 245 249);
   --linearSocial: linear-gradient(135deg, #C597FF, #797fff, #C597FF);
   --iconAbout: #C597FF;
+  --glassBg: rgba(255,255,255,0.1);
+  --borderGlass: rgba(0,0,0,0.5);
+  --maskGambar: linear-gradient(
+  to right,
+  transparent,
+  #000 7% 93%,
+  transparent
+  );
+  --inputHeight: 40px;
+  --textareaHeight: 100px;
+}
+
+html.dark {
+  --bg: rgb(30 41 59);
+  --text: rgb(241 245 249);
+  --nav: rgb(15 23 42);
+  --aHover: rgb(139 92 246);
+  --shadow: rgba(0, 0, 0, 0.2);
+  --textWhite: rgb(241 245 249);
+  --linearSocial: linear-gradient(135deg, rgb(139 92 246), #8e93fd, rgb(139 92 246));
+  --iconAbout: rgb(139 92 246);
   --glassBg: rgba(255,255,255,0.1);
   --borderGlass: rgba(0,0,0,0.5);
   --maskGambar: linear-gradient(
@@ -24,6 +45,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
 }
 text {
   font-weight: 600;
@@ -55,6 +79,7 @@ body {
   color: var(--text);
   overflow-x: hidden;
 }
+
 .navbar {
   position: fixed;
   background-color: var(--nav);
@@ -103,7 +128,9 @@ body {
   transform: scale(0);
   transition: all .3s ease-in-out;
 }
-.navbar .menu a:hover::before {
+.navbar .menu a:hover::before,
+.navbar .menu a.active::before
+{
   transform: scale(1);
 }
 .navbar .logo h3 {
@@ -140,6 +167,28 @@ body {
 .hamburger.diklik .hamburger-garis:nth-child(3) {
   transform-origin: bottom right;
   transform: rotate(-39deg);
+}
+
+#mengetik {
+  position: relative;
+}
+#mengetik::before {
+  content: '';
+  width: 3px;
+  height: 100%;
+  position: absolute;
+  right: -4px;
+  top: 0;
+  background: var(--aHover);
+  animation: mengetik .6s linear infinite;
+}
+#mengetik.sedangMengetik::before {
+  animation: none;
+}
+@keyframes mengetik {
+  50% {
+    opacity: 0;
+  }
 }
 
 
@@ -396,6 +445,17 @@ body {
 {
   position: relative;
 }
+#projects .container .cardProject .language .icons .svgDiv svg path,
+#projects .container .cardProject .framework .icons .svgDiv svg path
+{
+  fill: var(--text);
+  transition: fill .2s;
+}
+#projects .container .cardProject .language .icons .svgDiv svg:hover path,
+#projects .container .cardProject .framework .icons .svgDiv:hover svg path
+{
+  fill: var(--aHover);
+}
 #projects .container .cardProject .language .icons .svgDiv span,
 #projects .container .cardProject .framework .icons .svgDiv span
 {
@@ -548,6 +608,7 @@ body {
   border: 1px solid var(--aHover);
   transition: all .3s ease-in-out;
   border-radius: 5px;
+  outline: none;
 }
 #contact .container .form .inputDiv input::placeholder,
 #contact .container .form .input-gabung .inputDiv input::placeholder,
@@ -736,6 +797,7 @@ body {
     flex-direction: row;
     column-gap: 50px;
     padding: 0;
+    margin-top: 30px;
   }
   #about .container .image {
     width: 40%;
@@ -811,6 +873,11 @@ body {
   }
   #home .socialMedia a {
     font-size: 20px;
+  }
+  
+  #about .container {
+    margin-top: 0;
+    transform: translateX(-70px);
   }
   
   #projects .container {
