@@ -84,6 +84,6 @@ setInterval(function() {
   }, 900)
 }, 1200);
 
-// window.addEventListener("load", () => {
-//   document.querySelector(".loading").classList.add("hidden");
-// })
+window.addEventListener("load", () => {
+  document.querySelector(".loading").classList.add("hidden");
+})

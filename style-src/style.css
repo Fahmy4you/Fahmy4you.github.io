@@ -84,7 +84,6 @@ body {
   align-items: center;
   flex-direction: column;
   transition: .5s ease-in-out;
-  display: none;
 }
 .loading.hidden {
   display: none;
