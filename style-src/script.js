@@ -70,3 +70,20 @@ iconMode.addEventListener("click", () => {
   document.querySelector('html').classList.toggle('dark');
   iconMode.classList.toggle("active")
 })
+
+setInterval(function() {
+  document.querySelector(".loading h3").textContent = "Fahmy."
+  setTimeout(function() {
+    document.querySelector(".loading h3").textContent = "Fahmy.."
+  }, 300)
+  setTimeout(function() {
+    document.querySelector(".loading h3").textContent = "Fahmy..."
+  }, 600)
+  setTimeout(function() {
+    document.querySelector(".loading h3").textContent = "Fahmy.."
+  }, 900)
+}, 1200);
+
+// window.addEventListener("load", () => {
+//   document.querySelector(".loading").classList.add("hidden");
+// })
