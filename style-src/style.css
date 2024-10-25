@@ -563,6 +563,10 @@ body {
 {
   left: -9px;
 }
+#projects .container .cardProject .framework .icons .svgDiv span.codeigniter
+{
+  left: -16px;
+}
 #projects .container .cardProject .language .icons .svgDiv svg,
 #projects .container .cardProject .framework .icons .svgDiv svg
 {
