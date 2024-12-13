@@ -1,6 +1,7 @@
 :root {
   --bg: rgb(241 245 249);
   --text: rgb(15 23 42);
+  --textPlaceholder: rgba(15,23,42,0.7);
   --nav: rgb(241 245 249);
   --aHover: rgb(14,165,233);
   --shadow: rgba(0, 0, 0, 0.2);
@@ -17,11 +18,14 @@
   );
   --inputHeight: 40px;
   --textareaHeight: 100px;
+  --darkAHoveer: rgb(15 23 42);
+  --error: rgb(239 68 68);
 }
 
 html.dark {
   --bg: rgb(30 41 59);
   --text: rgb(241 245 249);
+  --textPlaceholder: rgba(241,245,249,0.5);
   --nav: rgb(15 23 42);
   --aHover: rgb(139 92 246);
   --shadow: rgba(0, 0, 0, 0.2);
@@ -198,6 +202,7 @@ body {
 .hamburger {
   background: none;
   border: none;
+  cursor: pointer;
 }
 .hamburger-garis {
   width: 24px;
@@ -347,7 +352,7 @@ body {
   transition: all .3s ease-in-out;
 }
 #home .socialMedia a:hover {
-  color: var(--text);
+  color: var(--darkAHoveer);
 }
 #home .socialMedia a span {
   display: none;
@@ -473,11 +478,23 @@ body {
 #projects .container .cardProject {
   background-color: var(--glassBg);
   box-shadow: 5px 5px 5px var(--shadow);
-  padding: 20px;
+  padding: 15px;
   border-radius: 10px;
   backdrop-filter: blur(5px);
   border-top: 1px solid var(--borderGlass);
   border-left: 1px solid var(--borderGlass);
+  position: relative;
+  /* height: 340px; */
+}
+#projects .container .cardProject.image {
+  height: 100%;
+}
+#projects .container .cardProject.image .image {
+  width: 100%;
+}
+#projects .container .cardProject.image .image img {
+  border-radius: 10px;
+  width: 100%;
 }
 #projects .container .cardProject h3 {
   font-size: 20px;
@@ -541,7 +558,7 @@ body {
 }
 #projects .container .cardProject .language .icons .svgDiv span.js
 {
-  left: -16px;
+  left: -10px;
 }
 #projects .container .cardProject .language .icons .svgDiv span.php
 {
@@ -586,6 +603,9 @@ body {
   display: flex;
   justify-content: flex-end;
   margin-top: 30px;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
 }
 #projects .container .cardProject .source a {
   border: 1px solid var(--aHover);
@@ -638,13 +658,19 @@ body {
   flex-direction: column;
   row-gap: 10px;
 }
-#contact .container .form .inputDiv,
-#contact .container .form .input-gabung .inputDiv
+#contact .container .form .input-content .error {
+  color: var(--error);
+  font-size: 13px;
+  margin-top: 3px;
+}
+#contact .container .form .input-content .error.textareaerror {
+  margin-top: -2px;
+}
+#contact .container .form .inputDiv
 {
   position: relative;
 }
-#contact .container .form .inputDiv span,
-#contact .container .form .input-gabung .inputDiv span
+#contact .container .form .inputDiv span
 {
   position: absolute;
   background-color: var(--aHover);
@@ -661,7 +687,6 @@ body {
   height: var(--textareaHeight);
 }
 #contact .container .form .inputDiv input,
-#contact .container .form .input-gabung .inputDiv input,
 #contact .container .form .inputDiv textarea
 {
   width: 100%;
@@ -673,29 +698,22 @@ body {
   transition: all .3s ease-in-out;
   border-radius: 5px;
   outline: none;
-}
-#contact .container .form .inputDiv input::placeholder,
-#contact .container .form .input-gabung .inputDiv input::placeholder,
-#contact .container .form .inputDiv textarea::placeholder
-{
   color: var(--text);
 }
+#contact .container .form .inputDiv input::placeholder,
+#contact .container .form .inputDiv textarea::placeholder
+{
+  color: var(--textPlaceholder);
+}
 #contact .container .form .inputDiv input:hover,
-#contact .container .form .input-gabung .inputDiv input:hover,
 #contact .container .form .inputDiv textarea:hover 
 {
   border: 1.5px solid var(--aHover);
 }
 #contact .container .form .inputDiv input:focus + span,
-#contact .container .form .input-gabung .inputDiv:focus + span,
 #contact .container .form .inputDiv textarea:focus + span 
 {
   width: 100%;
-}
-#contact .container .form .input-gabung {
-  display: flex;
-  flex-direction: column;
-  row-gap: 10px;
 }
 #contact .container .form .inputDiv textarea
 {
@@ -973,5 +991,9 @@ body {
   }
   #contact .container .image {
     width: 90%;
+  }
+  #contact .container .form .input-content .error {
+    font-size: 13px;
+    margin-top: 1px;
   }
 }
