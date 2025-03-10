@@ -39,6 +39,8 @@ html.dark {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: var(--aHover) var(--nav);
 }
 html {
   scroll-behavior: smooth;
@@ -49,6 +51,8 @@ text {
 a {
   text-decoration: none;
 }
+
+
 textBackground {
   background-color: var(--aHover);
   padding: 3px 5px;
